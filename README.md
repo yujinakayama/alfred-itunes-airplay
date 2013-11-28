@@ -4,7 +4,7 @@ This is an [Alfred 2](http://www.alfredapp.com/) workflow that allows you to con
 
 ![Screenshot](screenshot.jpg)
 
-Note that Alfred's workflow is a feature of [Powerpack](http://www.alfredapp.com/powerpack/), that is an optional paid extension.
+Note that Alfred's _workflow_ is a feature of [Powerpack](http://www.alfredapp.com/powerpack/), which is an optional paid extension.
 
 ## Installation
 
