@@ -8,7 +8,7 @@ Note that Alfred's _workflow_ is a feature of [Powerpack](http://www.alfredapp.c
 
 ## Installation
 
-Download [this workflow file](https://github.com/yujinakayama/alfred-itunes-airplay/releases/download/v0.0.2/iTunes.AirPlay.Control.alfredworkflow) and simply double-click it in Finder.
+Download [this workflow file](https://github.com/yujinakayama/alfred-itunes-airplay/releases/download/v0.0.3/iTunes.AirPlay.Control.alfredworkflow) and simply double-click it in Finder.
 
 ## Usage
 

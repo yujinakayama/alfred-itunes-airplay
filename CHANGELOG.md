@@ -2,6 +2,8 @@
 
 ## Development
 
+## v0.0.3
+
 * Support Mavericks
 
 ## v0.0.2
