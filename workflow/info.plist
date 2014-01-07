@@ -40,7 +40,7 @@
 				<key>runningsubtext</key>
 				<string>Listing available speakers...</string>
 				<key>script</key>
-				<string>./bin/list_airplay_devices "{query}"</string>
+				<string>./bin/ruby18 ./script/list_airplay_devices "{query}"</string>
 				<key>title</key>
 				<string>Control iTunes AirPlay speakers...</string>
 				<key>type</key>
@@ -61,7 +61,7 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
-				<string>./bin/toggle_airplay_device "{query}"</string>
+				<string>./bin/ruby18 ./script/toggle_airplay_device "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
