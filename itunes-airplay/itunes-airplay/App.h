@@ -1,5 +1,5 @@
 //
-//  main.m
+//  App.h
 //  itunes-airplay
 //
 //  Created by Yuji Nakayama on 2/11/15.
@@ -7,8 +7,9 @@
 //
 
 @import Foundation;
-#import "App.h"
 
-int main(int argc, const char * argv[]) {
-    return (int)[App run];
-}
+@interface App : NSObject
+
++ (NSInteger)run;
+
+@end
