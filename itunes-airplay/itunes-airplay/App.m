@@ -59,6 +59,13 @@
         }
 
         [self listAirPlayDevicesWithQuery:query];
+    } else if ([subcommand isEqualToString:@"toggle"]) {
+        if (self.arguments.count < 3) {
+            fprintf(stderr, "Specify persistent ID of AirPlay device to toggle.\n");
+            return 1;
+        }
+
+        [self toggleAirPlayDeviceWithPersistentID:self.arguments[2]];
     }
 
     return 0;
@@ -80,6 +87,16 @@
     AlfredResponse* response = [AlfredResponse responseWithAirPlayDevices:devices];
 
     printf("%s", [[response XMLString] UTF8String]);
+}
+
+- (void)toggleAirPlayDeviceWithPersistentID:(NSString*)persistentID
+{
+    for (iTunesAirPlayDevice* device in [self availableAirPlayDevices]) {
+        if ([device.persistentID isEqualToString:persistentID]) {
+            device.selected = !device.selected;
+            break;
+        }
+    }
 }
 
 - (iTunesApplication*)iTunes
