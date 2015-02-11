@@ -66,6 +66,9 @@
         }
 
         [self toggleAirPlayDeviceWithPersistentID:self.arguments[2]];
+    } else {
+        fprintf(stderr, "Unknown subcommand.\n");
+        return 1;
     }
 
     return 0;
