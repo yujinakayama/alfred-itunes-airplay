@@ -7,6 +7,8 @@
 //
 
 #import "App.h"
+#import "iTunes.h"
+#import "AlfredResponse.h"
 
 @interface App ()
 
@@ -14,10 +16,13 @@
 - (NSInteger)run;
 
 @property (nonatomic, readonly) NSArray* arguments;
+@property (nonatomic, readonly) iTunesApplication* iTunes;
 
 @end
 
-@implementation App
+@implementation App {
+    iTunesApplication* _iTunes;
+}
 
 + (NSInteger)run
 {
@@ -45,9 +50,58 @@
     }
 
     NSString* subcommand = self.arguments[1];
-    NSLog(@"%@", subcommand);
+
+    if ([subcommand isEqualToString:@"list"]) {
+        NSString* query = nil;
+
+        if (self.arguments.count >= 3) {
+            query = self.arguments[2];
+        }
+
+        [self listAirPlayDevicesWithQuery:query];
+    }
 
     return 0;
+}
+
+- (void)listAirPlayDevicesWithQuery:(NSString*)query
+{
+    NSArray* devices = [self availableAirPlayDevices];
+
+    if (query) {
+        NSPredicate* predicate = [NSPredicate predicateWithBlock:^BOOL(iTunesAirPlayDevice* device, NSDictionary* bindings) {
+            NSRange range = [device.name.lowercaseString rangeOfString:query];
+            return range.location != NSNotFound;
+        }];
+
+        devices = [devices filteredArrayUsingPredicate:predicate];
+    }
+
+    AlfredResponse* response = [AlfredResponse responseWithAirPlayDevices:devices];
+
+    printf("%s", [[response XMLString] UTF8String]);
+}
+
+- (iTunesApplication*)iTunes
+{
+    if (!_iTunes) {
+        _iTunes = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
+    }
+
+    return _iTunes;
+}
+
+- (NSArray*)availableAirPlayDevices
+{
+    // Convert SBElementArray to NSArray since SBElementArray does not support
+    // -[NSArray filteredArrayUsingPredicate:] with NSBlockPredicate.
+    NSArray* devices = [self.iTunes.AirPlayDevices get];
+
+    NSPredicate* predicate = [NSPredicate predicateWithBlock:^BOOL(iTunesAirPlayDevice* device, NSDictionary* bindings) {
+        return device.available;
+    }];
+
+    return [devices filteredArrayUsingPredicate:predicate];
 }
 
 @end
