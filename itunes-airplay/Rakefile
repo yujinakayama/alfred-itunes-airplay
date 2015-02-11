@@ -1,0 +1,13 @@
+desc 'Build itunes-airplay executable'
+task build: :generate_itunes_header do
+  sh 'xcodebuild build'
+end
+
+desc 'Generate iTunes.h from /Application/iTunes.app'
+task :generate_itunes_header do
+  Dir.chdir('itunes-airplay') do
+    sh "sdef /Applications/iTunes.app | sdp -fh --basename iTunes"
+  end
+end
+
+task default: :build

@@ -1,8 +1,20 @@
+require 'fileutils'
 
 workflow_dir = 'workflow'
 
-desc 'Build workflow icons from iTunes app icon'
-task :icons do
+desc 'Build workflow'
+task build: :icon do
+  Dir.chdir('itunes-airplay') do
+    sh 'rake build'
+  end
+
+  FileUtils.copy('itunes-airplay/build/Release/itunes-airplay', 'workflow/bin')
+
+  puts 'Done.'
+end
+
+desc 'Generate workflow icon images from iTunes app icon'
+task :icon do
   itunes_icon_path = '/Applications/iTunes.app/Contents/Resources/iTunes.icns'
   format = 'png'
   max_width_and_height = 256
@@ -19,4 +31,4 @@ task :icons do
   end
 end
 
-task default: :icons
+task default: :build
