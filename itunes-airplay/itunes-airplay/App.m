@@ -55,7 +55,7 @@
         NSString* query = nil;
 
         if (self.arguments.count >= 3) {
-            query = self.arguments[2];
+            query = [self.arguments[2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         }
 
         [self listAirPlayDevicesWithQuery:query];
