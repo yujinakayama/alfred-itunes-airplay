@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Yuji Nakayama. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
