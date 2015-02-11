@@ -78,7 +78,7 @@
 {
     NSArray* devices = [self availableAirPlayDevices];
 
-    if (query) {
+    if (query && query.length > 0) {
         NSPredicate* predicate = [NSPredicate predicateWithBlock:^BOOL(iTunesAirPlayDevice* device, NSDictionary* bindings) {
             NSRange range = [device.name.lowercaseString rangeOfString:query];
             return range.location != NSNotFound;
