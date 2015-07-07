@@ -287,6 +287,7 @@ typedef enum iTunesEAPD iTunesEAPD;
 
 @property (readonly) NSInteger duration;  // the total length of all songs (in seconds)
 @property (copy) NSString *name;  // the name of the playlist
+@property BOOL loved;  // is this plalist loved?
 @property (copy, readonly) iTunesPlaylist *parent;  // folder which contains this playlist (if any)
 @property BOOL shuffle;  // play the songs in this playlist in random order?
 @property (readonly) NSInteger size;  // the total size of all songs (in bytes)
@@ -359,6 +360,7 @@ typedef enum iTunesEAPD iTunesEAPD;
 
 @property (copy) NSString *album;  // the album name of the track
 @property (copy) NSString *albumArtist;  // the album artist of the track
+@property BOOL albumLoved;  // is the album for this track loved?
 @property NSInteger albumRating;  // the rating of the album for this track (0 to 100)
 @property (readonly) iTunesERtK albumRatingKind;  // the rating kind of the album rating for this track
 @property (copy) NSString *artist;  // the artist/source of the track
@@ -387,6 +389,7 @@ typedef enum iTunesEAPD iTunesEAPD;
 @property (readonly) BOOL iTunesU;  // is this track an iTunes U episode?
 @property (copy, readonly) NSString *kind;  // a text description of the track
 @property (copy) NSString *longDescription;
+@property BOOL loved;  // is this track loved?
 @property (copy) NSString *lyrics;  // the lyrics of the track
 @property (copy, readonly) NSDate *modificationDate;  // the modification date of the content of this track
 @property NSInteger playedCount;  // number of times this track has been played
