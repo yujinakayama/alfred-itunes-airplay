@@ -2,6 +2,10 @@
 
 ## Development
 
+## v1.0.1
+
+* Rebuild with iTunes 12.2
+
 ## v1.0.0
 
 * Rework with Objective-C instead of obsolete scripting bridge with Ruby 1.8

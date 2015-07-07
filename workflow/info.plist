@@ -37,6 +37,14 @@
 				<integer>4</integer>
 				<key>keyword</key>
 				<string>airplay</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Listing available speakers...</string>
 				<key>script</key>
@@ -58,6 +66,8 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
@@ -74,7 +84,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Version 1.0.0</string>
+	<string>Version 1.0.1</string>
 	<key>uidata</key>
 	<dict>
 		<key>1D1A4572-8436-461D-91C4-BD1CEB8B0B4E</key>
